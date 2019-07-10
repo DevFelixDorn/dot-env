@@ -1,0 +1,21 @@
+{
+  "name": "felixdorn/dot-env",
+  "description": "A .env parser for PHP and cool kids",
+  "type": "library",
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  },
+  "license": "GPL3.0-or-later",
+  "authors": [
+    {
+      "name": "Félix Dorn",
+      "email": "felix.dorn.fd@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Felix\\": "src/"
+    }
+  },
+  "require": {}
+}
