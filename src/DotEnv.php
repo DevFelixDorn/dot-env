@@ -4,8 +4,6 @@
 namespace Felix;
 
 
-use RuntimeException;
-
 class DotEnv
 {
     /**
@@ -31,33 +29,42 @@ class DotEnv
         $envs = [];
         $complexEnvs = [];
         foreach (explode(PHP_EOL, $content) as $line) {
-            [$key, $value] = $this->normalizeLine($line);
-            if (!preg_match('/\\\\\${.+}/', $value) && preg_match('/\${.+}/', $value)) {
-                $complexEnvs[$key] = $value;
-            } else {
-                $envs[$key] = $value;
+            if (!empty($line)) {
+                if (!preg_match('/.+=/', $line)) {
+                    $line .= '=';
+                }
+                [$key, $value] = $this->normalizeLine($line);
+                if (!preg_match('/\\\\\${.+}/', $value) && preg_match('/\${.+}/', $value)) {
+
+                    $complexEnvs[$key] = $value;
+                } else {
+                    $envs[$key] = $value;
+                }
+
             }
         }
         foreach ($complexEnvs as $complexEnvKey => $complexEnvValue) {
             foreach ($envs as $key => $value) {
-                if (preg_match(sprintf('/\${%s}/', $key), $complexEnvValue)) {
+
+                if (preg_match(sprintf("/\\\${%s}/", $key), $complexEnvValue)) {
                     $complexEnvValue = preg_replace('/\${.+}/', $value, $complexEnvValue);
                     $envs[$complexEnvKey] = $complexEnvValue;
                 }
+
+
             }
         }
+
         foreach ($envs as $key => $value) {
+            $value = preg_replace('/"/', '', $value);
             $this->put($key, $value);
         }
     }
 
     private function normalizeEnvFile(string $content)
     {
-        $content = preg_replace('/\#.+/', '', $content);
-        $content = preg_replace('/"/m', '', $content);
+        $content = preg_replace('/#.+/', '', $content);
         $content = trim($content);
-        $content = preg_replace('/\s+/', ' ', $content);
-        $content = preg_replace('/ /', PHP_EOL, $content);
         return $content;
     }
 

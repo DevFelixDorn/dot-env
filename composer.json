@@ -3,7 +3,8 @@
   "description": "A .env parser for PHP and cool kids",
   "type": "library",
   "require-dev": {
-    "phpunit/phpunit": "^7.5"
+    "phpunit/phpunit": "^7.5",
+    "symfony/var-dumper": "^4.3"
   },
   "license": "GPL3.0-or-later",
   "authors": [
