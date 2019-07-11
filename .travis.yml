@@ -1,4 +1,0 @@
-language: php
-before_script: composer install
-php:
-  - '7.1'
