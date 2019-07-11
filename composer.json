@@ -6,7 +6,7 @@
     "phpunit/phpunit": "^7.5",
     "symfony/var-dumper": "^4.3"
   },
-  "license": "GPL3.0-or-later",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Félix Dorn",
