@@ -1,4 +1,6 @@
 # How to use felixdorn/dot-env
+> composer require `felixdorn/dot-env`
+
 > Easier than you think ! 
 ```php
     use Felix\DotEnv;
