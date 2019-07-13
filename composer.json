@@ -1,6 +1,6 @@
 {
   "name": "felixdorn/dot-env",
-  "description": "A .env parser for PHP and cool kids",
+  "description": "The most lightweight .env parser for PHP. With concatenation.",
   "type": "library",
   "require-dev": {
     "phpunit/phpunit": "^7.5",
