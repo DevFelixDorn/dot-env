@@ -79,10 +79,10 @@ class DotEnv
     {
         putenv("{$key}={$value}");
 
-        if ($_ENV[$key] === null) {
+        if (isset($_ENV[$key]) && $_ENV[$key] === null) {
             $_ENV[$key] = $value;
         }
-        if ($_SERVER[$key] === null) {
+        if (isset($_ENV[$key]) && $_SERVER[$key] === null) {
             $_SERVER[$key] = $value;
         }
     }
