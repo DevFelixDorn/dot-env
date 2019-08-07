@@ -3,8 +3,8 @@
 
 > Easier than you think ! 
 ```php
-    use Felix\DotEnv;
-    DotEnv::register('.env');
+use Felix\DotEnv;
+DotEnv::register('.env');
 ```
 > Note that you could register multiple .env
 
@@ -19,4 +19,10 @@ ANOTHER_SENTENCES="Hey ${NICKNAME}" # will print Hey Felix
 baDCase=DUMMY_VALUE # baDCase became BADCASE when parsing so access to baDCase value with $_SERVER['BADCASE']
 something # To make workflow more simple, this will output an empty value like $_ENV['SOMETHING']
 fdsldjs=${UNEXISTING} # This will be simply removed while this value doesn't exist 
+```
+
+### Parse only
+> if you want to just parse an env file without put values in ENV
+```php
+$content = (new DotEnv)->setFilename('../tests/.env.test')->parseOnly();
 ```
