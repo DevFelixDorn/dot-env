@@ -39,7 +39,7 @@ class DotEnv
         $content = $this->normalizeEnvFile(file_get_contents($this->filename));
         $envs = [];
         $complexEnvs = [];
-        foreach (explode("\n", $content) as $line) {
+        foreach (explode(PHP_EOL, $content) as $line) {
             if (!empty($line)) {
                 if (!preg_match('/.+=/', $line)) {
                     $line .= '=';
