@@ -1,10 +1,11 @@
 {
   "name": "felixdorn/dot-env",
-  "description": "The most lightweight .env parser for PHP. With concatenation.",
+  "description": "The most lightweight .env parser for PHP. With concatenation. Caching.",
   "type": "library",
   "require-dev": {
     "phpunit/phpunit": "^7.5",
-    "symfony/var-dumper": "^4.3"
+    "symfony/var-dumper": "^4.3",
+    "doctrine/cache": "^1.8"
   },
   "license": "GPL-3.0-or-later",
   "authors": [
