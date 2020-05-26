@@ -1,3 +1,4 @@
+**You should not use this.**
 # How to use felixdorn/dot-env
 > composer require `felixdorn/dot-env`
 
@@ -14,7 +15,7 @@ FOO=BAR # You can access to FOO by typing $_SERVER['FOO'] or $_ENV['FOO'] or get
 NAME=Hello${FOO} #  Will print HelloBar
 NICKNAME=Felix
 # You can write comment ! Yeah !
-SENTENCE="Hey Guys" # space allowed only when value is in parentheses
+SENTENCE="Hey Guys" # space allowed only when value is in quotes
 ANOTHER_SENTENCES="Hey ${NICKNAME}" # will print Hey Felix
 baDCase=DUMMY_VALUE # baDCase became BADCASE when parsing so access to baDCase value with $_SERVER['BADCASE']
 something # To make workflow more simple, this will output an empty value like $_ENV['SOMETHING']
